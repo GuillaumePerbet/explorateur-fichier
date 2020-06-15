@@ -33,5 +33,7 @@
     }
     printItems(json_encode($items));
     ?>
+
+    <script src="script.js"></script>
 </body>
 </html>
