@@ -8,17 +8,13 @@
 <body>
     <?php
     require_once("php/functions.php");
-    // go to "home" directory
-    chdir(getcwd() . DIRECTORY_SEPARATOR . "home");
+    // stock "home" directory path
+    $url = getcwd() . DIRECTORY_SEPARATOR . "home";
     ?>
+
     <header>
         <nav>
-            <ul id="breadcrumb">
-                <?php
-                //print "home" breadcrumb
-                breadcrumb(getcwd());
-                ?>
-            </ul>
+            <ul id="breadcrumb"></ul>
         </nav>
     </header>
     
@@ -35,5 +31,8 @@
     ?>
 
     <script src="script.js"></script>
+    <script>
+        breadcrumb("<?=$url?>");
+    </script>
 </body>
 </html>
