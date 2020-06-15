@@ -8,9 +8,22 @@
 <body>
     <?php
     require_once("php/print-items.php");
-
-    // print content of home folder
+    // go to "home" directory
     chdir(getcwd() . DIRECTORY_SEPARATOR . "home");
+    ?>
+    <header>
+        <nav>
+            <ul id="breadcrumb">
+                <?php
+                //print "home" breadcrumb
+                breadcrumb(getcwd());
+                ?>
+            </ul>
+        </nav>
+    </header>
+    
+    <?php
+    // print content of home folder
     $content = scandir(getcwd());
     $items = [];
     foreach($content as $item ){
