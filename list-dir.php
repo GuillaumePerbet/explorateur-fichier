@@ -4,9 +4,8 @@
 $url = getcwd(); 
 $content=scandir($url);
 
-print_r($content);
-
 foreach($content as $item ){
-	echo $item."<br />";
+	if($item !== "." && $item !== ".."){
+		echo $item."<br />";
+	}
 }
-?>
