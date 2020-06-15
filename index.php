@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    require_once("print-items.php");
+    require_once("php/print-items.php");
 
     // print content of home folder
     chdir(getcwd() . DIRECTORY_SEPARATOR . "home");
