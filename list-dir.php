@@ -1,5 +1,7 @@
 <?php
-// 1 et 3 - Return content of current directory {"name" : , "isFolder": }
+// 1 et 3 - Return items of current directory in JSON
+// "name" : item name string
+// "isFolder" : boolean
 
 $url = getcwd();
 $content = scandir($url);
