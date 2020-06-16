@@ -21,6 +21,10 @@
         </nav>
     </header>
     
+    <main>
+        <section id="listFiles"></section>
+    </main>
+
     <?php
     // print content of home folder
     $content = scandir(getcwd());
@@ -37,6 +41,7 @@
     <script>
         setSessionUrl(<?=$url?>);
         breadcrumbUpdate(sessionStorage.getItem("url"));
+        filesListUpdate(sessionStorage.getItem("url"));
     </script>
 </body>
 </html>
