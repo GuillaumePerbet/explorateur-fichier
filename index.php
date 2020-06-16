@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    require_once("php/functions.php");
+    require_once("php/printFiles.php");
     require_once("php/cd.php");
     // stock "home" directory path
     $url = getcwd() . DIRECTORY_SEPARATOR . "home";
