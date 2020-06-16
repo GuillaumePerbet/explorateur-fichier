@@ -1,17 +1,29 @@
 <?php
-// 1 et 3 - Return items of current directory in JSON
-// "name" : item name string
-// "isFolder" : boolean
 
-$url = getcwd();
-$content = scandir($url);
+// get content of targeted directory
+chdir($_POST["url"]);
+$content = scandir(getcwd());
 $response = [];
 
 foreach($content as $item ){
+	
 	// hide useless entries of $content
 	if($item !== "." && $item !== ".."){
+
+		// check if item is file or folder
+		if (is_dir($item)){
+            $type = "folder";
+        }else{
+            $type = "file";
+        }
+
 		// add item to $response
-		array_push($response, ["name"=>$item, "isFolder"=>is_dir($item)]);
+		array_push($response,
+		"<figure class='item'>
+			<img src=media/$type.png alt=$type>
+			<figcaption>$item</figcaption>
+		</figure>"
+		);
 	}
 }
 
