@@ -31,3 +31,9 @@ function filesListUpdate(url){
         });
     });
 }
+
+function navigate(url){
+    setSessionUrl(url);
+    breadcrumbUpdate(url);
+    filesListUpdate(url);
+}
