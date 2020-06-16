@@ -17,20 +17,3 @@ function printItems($list){
         </figure>";
     }
 }
-
-// take directory URL
-// print breadcrumb
-function breadcrumb($url){
-    // split URL
-    $path = explode(DIRECTORY_SEPARATOR,$url);
-    $print = false;
-    foreach($path as $item){
-        // start printing at "home" directory
-        if($item == "home"){
-            $print = true;
-        }
-        if($print){
-            echo "<li><a href='#'>$item</a></li>";
-        }
-    }
-}
