@@ -14,7 +14,8 @@
     $url = json_encode($url);
     ?>
 
-    <header class="container">
+    <header class="container margin">
+        <h1>Explorateur de fichiers</h1>
         <nav class=" elevation">
             <ul id="breadcrumb" class="flex"></ul>
         </nav>
