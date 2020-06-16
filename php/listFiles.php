@@ -13,14 +13,16 @@ foreach($content as $item ){
 
 		// check if item is file or folder
 		if (is_dir($item)){
-            $type = "folder";
+			$type = "folder";
+			$event = "navigate(".json_encode($url . DIRECTORY_SEPARATOR . $item).")";
         }else{
-            $type = "file";
+			$type = "file";
+			$event = "";
         }
 
 		// add item to $response
 		array_push($response,
-		"<figure class='item' onclick=navigate(". json_encode($url . DIRECTORY_SEPARATOR . $item) . ")>
+		"<figure class='item' onclick=$event>
 			<img src=media/$type.png alt=$type>
 			<figcaption>$item</figcaption>
 		</figure>"
