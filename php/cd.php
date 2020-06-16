@@ -7,8 +7,6 @@
 function cd($arg) {
 	$dest = json_decode($arg);
 	chdir($dest);
-	//debug
-	echo getcwd() . "\n";
 }
 
 ?>
