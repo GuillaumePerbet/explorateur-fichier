@@ -4,7 +4,7 @@
 $url = $_POST["url"];
 chdir($url);
 // hide useless entries of $content
-$content = array_diff(scandir(getcwd()), array('..', '.'));;
+$content = array_diff(scandir(getcwd()), array('..', '.'));
 $response = [];
 
 foreach($content as $item ){
@@ -20,12 +20,11 @@ foreach($content as $item ){
 
 	// add item to $response
 	array_push($response,
-	"<figure class='item' onclick=$event>
-		<img src=media/$type.png alt=$type>
+	"<figure class='item' onclick='$event'>
+		<img src='media/$type.png' alt='$type' width='225' height='225'>
 		<figcaption>$item</figcaption>
 	</figure>"
 	);
-
 }
 
 echo json_encode($response);
