@@ -14,14 +14,14 @@
     $url = json_encode($url);
     ?>
 
-    <header>
-        <nav>
-            <ul id="breadcrumb"></ul>
+    <header class="container">
+        <nav class=" elevation">
+            <ul id="breadcrumb" class="flex"></ul>
         </nav>
     </header>
     
     <main>
-        <section id="listFiles"></section>
+        <section id="listFiles" class="container"></section>
     </main>
 
     <script src="script.js"></script>
