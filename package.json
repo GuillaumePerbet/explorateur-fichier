@@ -1,0 +1,19 @@
+{
+  "name": "explorateur-fichier",
+  "version": "1.0.0",
+  "description": "Exercice de création d'un explorateur de fichier",
+  "main": "script.js",
+  "scripts": {
+    "sass": "sass --watch style.scss:style.css --style expanded"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n3wborn/explorateur-fichier.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/n3wborn/explorateur-fichier/issues"
+  },
+  "homepage": "https://github.com/n3wborn/explorateur-fichier#readme"
+}
