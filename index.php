@@ -7,12 +7,10 @@
 </head>
 <body>
     <?php
-    require_once("php/printFiles.php");
-    require_once("php/cd.php");
-    // stock "home" directory path
+    // go to "home" directory
     $url = getcwd() . DIRECTORY_SEPARATOR . "home";
+    chdir($url);
     $url = json_encode($url);
-    cd($url);
     ?>
 
     <header>
