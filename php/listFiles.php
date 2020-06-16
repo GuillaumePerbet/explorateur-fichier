@@ -4,7 +4,7 @@
 $url = $_POST["url"];
 chdir($url);
 // hide useless entries of $content
-$content = array_diff(scandir(getcwd()), array('..', '.'));;
+$content = array_diff(scandir(getcwd()), array('..', '.'));
 $response = [];
 
 foreach($content as $item ){
