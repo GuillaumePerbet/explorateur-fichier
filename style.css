@@ -39,8 +39,19 @@ ul, ol {
 
 .container {
   width: 100%;
-  max-width: 80rem;
+  max-width: 60rem;
   margin: auto;
+}
+
+.elevation {
+  padding: 2rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.margin {
+  margin-bottom: 1rem;
 }
 
 .flex {
@@ -65,17 +76,6 @@ ul, ol {
 
 .center {
   align-items: center;
-}
-
-.elevation {
-  padding: 2rem;
-  margin: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.margin {
-  margin-bottom: 1rem;
 }
 
 h1 {
@@ -116,13 +116,13 @@ h2 {
 nav {
   color: #FFFFFF;
   background-color: #6200EE;
-  height: 3.5rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   font-family: "Roboto-Regular", sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.03125rem;
+  font-size: 1.5rem;
 }
-nav a {
+nav li {
+  margin-right: 0.5rem;
+}
+nav li a {
   cursor: pointer;
 }
 

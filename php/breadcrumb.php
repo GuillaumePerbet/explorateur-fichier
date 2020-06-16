@@ -13,6 +13,7 @@ foreach($path as $item){
     if($print){
         array_push($response,
             "<li>
+                >
                 <a onclick='navigate(".json_encode($url).")'>
                     $item
                 </a>
