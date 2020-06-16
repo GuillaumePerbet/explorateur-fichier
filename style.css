@@ -122,10 +122,25 @@ nav {
   font-size: 1rem;
   letter-spacing: 0.03125rem;
 }
+nav a {
+  cursor: pointer;
+}
 
-#listFiles img {
+#listFiles figure {
+  cursor: pointer;
+  position: relative;
   width: 8rem;
   height: 8rem;
+}
+#listFiles figure img {
+  width: 100%;
+  height: 100%;
+}
+#listFiles figure figcaption {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 3rem;
 }
 
 /*# sourceMappingURL=style.css.map */
