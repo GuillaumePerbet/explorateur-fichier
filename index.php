@@ -20,7 +20,7 @@
     
     <?php
     // print content of home folder
-    $content = scandir(getcwd());
+    $content = scandir($url);
     $items = [];
     foreach($content as $item ){
         if($item !== "." && $item !== ".."){
@@ -32,7 +32,8 @@
 
     <script src="script.js"></script>
     <script>
-        breadcrumb("<?=$url?>");
+        setSessionUrl(<?=json_encode($url)?>);
+        breadcrumbUpdate(sessionStorage.getItem("url"));
     </script>
 </body>
 </html>
