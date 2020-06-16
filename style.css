@@ -31,6 +31,12 @@ p {
   margin: 0;
 }
 
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   width: 100%;
   max-width: 80rem;
@@ -88,17 +94,7 @@ h2 {
   padding: 0.5rem 0;
 }
 
-ul, ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.txt-center {
-  text-align: center;
-}
-
-input[type=submit] {
+.button {
   font-family: "Roboto-Medium", sans-serif;
   font-size: 0.875rem;
   letter-spacing: 0.078125rem;
@@ -111,13 +107,10 @@ input[type=submit] {
   border-radius: 0.25rem;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
-input[type=submit]:hover {
+.button:hover {
   cursor: pointer;
   opacity: 0.92;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-}
-input:focus {
-  outline: none;
 }
 
 nav {
@@ -128,6 +121,11 @@ nav {
   font-family: "Roboto-Regular", sans-serif;
   font-size: 1rem;
   letter-spacing: 0.03125rem;
+}
+
+#listFiles img {
+  width: 8rem;
+  height: 8rem;
 }
 
 /*# sourceMappingURL=style.css.map */
