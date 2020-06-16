@@ -25,18 +25,6 @@
         <section id="listFiles"></section>
     </main>
 
-    <?php
-    // print content of home folder
-    $content = scandir(getcwd());
-    $items = [];
-    foreach($content as $item){
-        if($item !== "." && $item !== ".."){
-            array_push($items, ["name"=>$item, "isFolder"=>is_dir($item)]);
-        }
-    }
-    printItems(json_encode($items));
-    ?>
-
     <script src="script.js"></script>
     <script>
         setSessionUrl(<?=$url?>);
