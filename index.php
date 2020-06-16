@@ -8,8 +8,11 @@
 <body>
     <?php
     require_once("php/functions.php");
+    require_once("php/cd.php");
     // stock "home" directory path
     $url = getcwd() . DIRECTORY_SEPARATOR . "home";
+    $url = json_encode($url);
+    cd($url);
     ?>
 
     <header>
@@ -20,9 +23,9 @@
     
     <?php
     // print content of home folder
-    $content = scandir($url);
+    $content = scandir(getcwd());
     $items = [];
-    foreach($content as $item ){
+    foreach($content as $item){
         if($item !== "." && $item !== ".."){
             array_push($items, ["name"=>$item, "isFolder"=>is_dir($item)]);
         }
@@ -32,7 +35,7 @@
 
     <script src="script.js"></script>
     <script>
-        setSessionUrl(<?=json_encode($url)?>);
+        setSessionUrl(<?=$url?>);
         breadcrumbUpdate(sessionStorage.getItem("url"));
     </script>
 </body>
