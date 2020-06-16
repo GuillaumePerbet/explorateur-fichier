@@ -5,7 +5,7 @@ function setSessionUrl(url){
 }
 
 // take url : JSON
-// update DOM breadcrumb element
+// update #breadcrumb element
 function breadcrumbUpdate(url){
     const breadcrumbElt = document.getElementById("breadcrumb");
     breadcrumbElt.innerHTML = "";
@@ -14,6 +14,20 @@ function breadcrumbUpdate(url){
     fetch("php/breadcrumb.php", {method: "POST", body: formData}).then(res=>res.json()).then(data=>{
         data.forEach(element => {
             breadcrumbElt.innerHTML += element;
+        });
+    });
+}
+
+// take url : JSON
+// update #listFiles element
+function filesListUpdate(url){
+    const listFilesElt = document.getElementById("listFiles");
+    listFilesElt.innerHTML = "";
+    const formData = new FormData();
+    formData.append("url",url);
+    fetch("php/listFiles.php", {method: "POST", body: formData}).then(res=>res.json()).then(data=>{
+        data.forEach(element => {
+            listFilesElt.innerHTML += element;
         });
     });
 }
