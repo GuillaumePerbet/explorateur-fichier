@@ -18,7 +18,11 @@
         <section id="createFiles" class="container">
             <form id="createFolder" action="">
                 <input type="text" name="folderName" value="Nouveau dossier">
-                <input type="submit" value="Créer">
+                <input type="submit" value="Créer un dossier">
+            </form>
+            <form id="createFile" action="">
+                <input type="text" name="fileName" value="Nouveau fichier">
+                <input type="submit" value="Créer un fichier">
             </form>
         </section>
         

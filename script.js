@@ -49,3 +49,13 @@ createFolderForm.addEventListener("submit", (e)=>{
     formData.append("url", sessionStorage.getItem("url"));
     fetch("php/createFolder.php", {method : "POST" , body : formData}).then(res=>navigate(sessionStorage.getItem("url")));
 });
+
+//create file event
+const createFileForm = document.getElementById("createFile");
+createFileForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    //send formData with "url" and "fileName"
+    const formData = new FormData(createFileForm);
+    formData.append("url", sessionStorage.getItem("url"));
+    fetch("php/createFile.php", {method : "POST" , body : formData}).then(res=>navigate(sessionStorage.getItem("url")));
+});
