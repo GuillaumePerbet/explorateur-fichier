@@ -15,6 +15,10 @@
     </header>
     
     <main>
+
+        <section class="sort-section container">
+            <button id="sort-btn" name="sort-btn">Nom</button>
+        </section>
         <section id="createFiles" class="container">
             <form id="createFolder" action="">
                 <input type="text" name="folderName" value="Nouveau dossier">
@@ -25,8 +29,8 @@
                 <input type="submit" value="Créer un fichier">
             </form>
         </section>
-        
         <section id="listFiles" class="container"></section>
+        
     </main>
 
     <?php
