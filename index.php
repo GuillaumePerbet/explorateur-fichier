@@ -28,9 +28,7 @@
     <script src="script.js"></script>
     <script>
         //fill index page on loading
-        setSessionUrl(<?=$url?>);
-        breadcrumbUpdate(sessionStorage.getItem("url"));
-        filesListUpdate(sessionStorage.getItem("url"));
+        navigate(<?=$url?>);
     </script>
 </body>
 </html>
