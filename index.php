@@ -7,13 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php
-    // go to "home" directory
-    $url = getcwd() . DIRECTORY_SEPARATOR . "home";
-    chdir($url);
-    $url = json_encode($url);
-    ?>
-
     <header class="container margin">
         <h1>Explorateur de fichiers</h1>
         <nav class=" elevation">
@@ -25,8 +18,16 @@
         <section id="listFiles" class="container"></section>
     </main>
 
+    <?php
+    // go to "home" directory
+    $url = getcwd() . DIRECTORY_SEPARATOR . "home";
+    chdir($url);
+    $url = json_encode($url);
+    ?>
+
     <script src="script.js"></script>
     <script>
+        //fill index page on loading
         setSessionUrl(<?=$url?>);
         breadcrumbUpdate(sessionStorage.getItem("url"));
         filesListUpdate(sessionStorage.getItem("url"));
