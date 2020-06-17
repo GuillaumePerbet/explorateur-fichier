@@ -15,6 +15,13 @@
     </header>
     
     <main>
+        <section id="createFiles" class="container">
+            <form id="createFolder" action="">
+                <input type="text" name="folderName" value="Nouveau dossier">
+                <input type="submit" value="Créer">
+            </form>
+        </section>
+        
         <section id="listFiles" class="container"></section>
     </main>
 

@@ -1,3 +1,11 @@
+//take url : JSON
+//update html components
+function navigate(url){
+    setSessionUrl(url);
+    breadcrumbUpdate(url);
+    filesListUpdate(url);
+}
+
 // take url : JSON
 // update session storage url
 function setSessionUrl(url){
@@ -32,8 +40,12 @@ function filesListUpdate(url){
     });
 }
 
-function navigate(url){
-    setSessionUrl(url);
-    breadcrumbUpdate(url);
-    filesListUpdate(url);
-}
+//create folder event
+const createFolderForm = document.getElementById("createFolder");
+createFolderForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    //send formData with "url" and "folderName"
+    const formData = new FormData(createFolderForm);
+    formData.append("url", sessionStorage.getItem("url"));
+    fetch("php/createFolder.php", {method : "POST" , body : formData}).then(res=>navigate(sessionStorage.getItem("url")));
+});
