@@ -32,6 +32,22 @@ function filesListUpdate(url){
     });
 }
 
+// TEST STF
+// A button has been clicked ?
+function btnFlipState(button, state) {
+    const btn = document.getElementById(button);
+    var state = state ^ 1;
+    btn.addEventListener("click", setSessionBtnState(btn, state));
+}
+
+// Save buttons state
+// button = button id
+// state : O = inactive / 1 = active
+function setSessionBtnState(button, state) {
+    sessionStorage.setItem(button,state);
+}
+// TEST STF
+
 function navigate(url){
     setSessionUrl(url);
     breadcrumbUpdate(url);

@@ -21,8 +21,8 @@
     </header>
     
     <main>
-        <section class="sort-section container">
-            <button id="sort-btn" name="sort-btn">Nom</button>
+        <section id="sort-section container">
+            <button id="btn-sortByName" onclick="btnFlipState("btn-sortByName")">Tri par Nom</button>
         </section>
         <section id="listFiles" class="container"></section>
     </main>
