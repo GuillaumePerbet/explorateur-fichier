@@ -1,10 +1,9 @@
 <?php
+require_once("functions.php");
 
-// get content of targeted directory
 $url = $_POST["url"];
-chdir($url);
-// hide useless entries of $content
-$content = array_diff(scandir(getcwd()), array('..', '.'));
+// get content of directory
+$content = getDirectoryContent($url);
 $response = [];
 
 foreach($content as $item ){
