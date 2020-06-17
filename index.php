@@ -21,6 +21,9 @@
     </header>
     
     <main>
+        <section class="sort-section container">
+            <button id="sort-btn" name="sort-btn">Nom</button>
+        </section>
         <section id="listFiles" class="container"></section>
     </main>
 
