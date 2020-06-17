@@ -40,6 +40,7 @@ function filesListUpdate(url){
     });
 }
 
+<<<<<<< HEAD
 //create folder event
 const createFolderForm = document.getElementById("createFolder");
 createFolderForm.addEventListener("submit", (e)=>{
@@ -59,3 +60,26 @@ createFileForm.addEventListener("submit", (e)=>{
     formData.append("url", sessionStorage.getItem("url"));
     fetch("php/createFile.php", {method : "POST" , body : formData}).then(res=>navigate(sessionStorage.getItem("url")));
 });
+=======
+// TEST STF
+// A button has been clicked ?
+function btnFlipState(button, state) {
+    const btn = document.getElementById(button);
+    var state = state ^ 1;
+    btn.addEventListener("click", setSessionBtnState(btn, state));
+}
+
+// Save buttons state
+// button = button id
+// state : O = inactive / 1 = active
+function setSessionBtnState(button, state) {
+    sessionStorage.setItem(button,state);
+}
+// TEST STF
+
+function navigate(url){
+    setSessionUrl(url);
+    breadcrumbUpdate(url);
+    filesListUpdate(url);
+}
+>>>>>>> 236cdf9044a99c16ac94f902c6e0b1f7bcefcb56
