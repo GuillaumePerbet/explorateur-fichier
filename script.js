@@ -3,6 +3,7 @@ function navigate(url){
     setSessionUrl(url);
     breadcrumbUpdate(url);
     filesListUpdate(url);
+    setSessionSort();
 }
 
 //stock current url in session storage
@@ -113,4 +114,22 @@ function pasteFile(){
             sessionStorage.removeItem("copyFileName");
         });
     }
+}
+
+//check btn onclick event
+const sortBtn = document.getElementById('sortBtn');
+sortBtn.addEventListener('click', flipSort);
+
+//create a "sort state"
+//if necessary
+function setSessionSort() {
+    if (!sessionStorage.getItem("sort")) {
+        sessionStorage.setItem("sort", 0);
+    }
+}
+
+function flipSort() {
+    let state = sessionStorage.getItem("sort");
+    state ^= 1;
+    sessionStorage.setItem("sort", state);
 }
