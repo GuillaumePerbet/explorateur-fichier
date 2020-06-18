@@ -4,6 +4,7 @@ function navigate(url){
     setSessionUrl(url);
     breadcrumbUpdate(url);
     filesListUpdate(url);
+    setSessionSort();
 }
 
 // take url : JSON
@@ -40,7 +41,6 @@ function filesListUpdate(url){
     });
 }
 
-<<<<<<< HEAD
 //create folder event
 const createFolderForm = document.getElementById("createFolder");
 createFolderForm.addEventListener("submit", (e)=>{
@@ -60,26 +60,55 @@ createFileForm.addEventListener("submit", (e)=>{
     formData.append("url", sessionStorage.getItem("url"));
     fetch("php/createFile.php", {method : "POST" , body : formData}).then(res=>navigate(sessionStorage.getItem("url")));
 });
-=======
-// TEST STF
-// A button has been clicked ?
-function btnFlipState(button, state) {
-    const btn = document.getElementById(button);
-    var state = state ^ 1;
-    btn.addEventListener("click", setSessionBtnState(btn, state));
+
+//take url : JSON, file : string
+//delete file at url
+function deleteFile(url,file){
+    const formData = new FormData();
+    formData.append('url',url+"\\"+file);
+    fetch('php/deleteFile.php',{method: 'POST', body: formData}).then(res=>navigate(url));
 }
 
-// Save buttons state
-// button = button id
-// state : O = inactive / 1 = active
-function setSessionBtnState(button, state) {
-    sessionStorage.setItem(button,state);
-}
-// TEST STF
+//take url : JSON
+//open file at url
+function openFile(url){
+    const formData = new FormData();
+    formData.append('url',url);
+    fetch('php/openFile.php',{method: 'POST', body: formData}).then(res=>res.json()).then(data=>alert(data));
 
-function navigate(url){
-    setSessionUrl(url);
-    breadcrumbUpdate(url);
-    filesListUpdate(url);
 }
->>>>>>> 236cdf9044a99c16ac94f902c6e0b1f7bcefcb56
+
+//stf
+function filesListRevUpdate(url){
+    const listFilesElt = document.getElementById("listFiles");
+    listFilesElt.innerHTML = "";
+    const formData = new FormData();
+    formData.append("url",url);
+    fetch("php/listFilesRev.php", {method: "POST", body: formData}).then(res=>res.json()).then(data=>{
+        data.forEach(element => {
+            listFilesElt.innerHTML += element;
+        });
+    });
+}
+
+//check btn onclick event
+const sortBtn = document.getElementById('sortBtn');
+sortBtn.addEventListener('click', flipSort);
+
+
+//create a "sort state"
+//if necessary
+function setSessionSort() {
+    if (!sessionStorage.getItem("sort")) {
+        sessionStorage.setItem("sort", 0);
+    }
+}
+
+function flipSort() {
+    let state = sessionStorage.getItem("sort");
+    state ^= 1;
+    sessionStorage.setItem("sort", state);
+    filesListRevUpdate();
+    }
+}
+

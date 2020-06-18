@@ -13,13 +13,8 @@
             <ul id="breadcrumb" class="flex"></ul>
         </nav>
     </header>
-    
-    <main>
-<<<<<<< HEAD
 
-        <section class="sort-section container">
-            <button id="sort-btn" name="sort-btn">Nom</button>
-        </section>
+    <main>
         <section id="createFiles" class="container">
             <form id="createFolder" action="">
                 <input type="text" name="folderName" value="Nouveau dossier">
@@ -29,13 +24,12 @@
                 <input type="text" name="fileName" value="Nouveau fichier">
                 <input type="submit" value="Créer un fichier">
             </form>
-=======
-        <section id="sort-section container">
-            <button id="btn-sortByName" onclick="btnFlipState("btn-sortByName")">Tri par Nom</button>
->>>>>>> 236cdf9044a99c16ac94f902c6e0b1f7bcefcb56
+        </section>
+        <section id="sortSection"  class="container">
+            <button id="sortBtn">Tri par Nom</button>
         </section>
         <section id="listFiles" class="container"></section>
-        
+
     </main>
 
     <?php

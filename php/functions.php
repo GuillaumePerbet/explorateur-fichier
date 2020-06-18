@@ -16,14 +16,15 @@ function getDirectoryContent($url){
 //print array of html components in JSON format
 function printDirectoryContent($content){
     $response = [];
+    $url = getcwd();
     foreach($content as $file){
         // check if item is a file or a folder
         if (is_dir($file)){
             $type = "folder";
-            $event = "navigate(".json_encode(getcwd() . DIRECTORY_SEPARATOR . $file).")";
+            $event = "navigate(".json_encode($url . DIRECTORY_SEPARATOR . $file).")";
         }else{
             $type = "file";
-            $event = "";
+            $event = "openFile(".json_encode($url . DIRECTORY_SEPARATOR . $file).")";
         }
     
         // add component to $response
@@ -31,8 +32,23 @@ function printDirectoryContent($content){
         "<figure class='item' onclick='$event'>
             <img src='media/$type.png' alt='$type' width='225' height='225'>
             <figcaption>$file</figcaption>
-        </figure>"
+        </figure>
+        <button onclick='deleteFile(".json_encode($url).",".json_encode($file).")'>Supprimer</button>"
         );
     }
     echo json_encode($response);
+}
+
+//take file url
+//remove file and all content recursively
+function deleteFile($url){
+    if (is_file($url)){
+        unlink($url);
+    }else{
+        $content = getDirectoryContent($url);
+        foreach($content as $file){
+            deleteFile($url . DIRECTORY_SEPARATOR . $file);
+        }
+        rmdir($url);
+    }
 }
