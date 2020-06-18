@@ -78,6 +78,19 @@ function openFile(url){
 
 }
 
+//stf
+function filesListRevUpdate(url){
+    const listFilesElt = document.getElementById("listFiles");
+    listFilesElt.innerHTML = "";
+    const formData = new FormData();
+    formData.append("url",url);
+    fetch("php/listFilesRev.php", {method: "POST", body: formData}).then(res=>res.json()).then(data=>{
+        data.forEach(element => {
+            listFilesElt.innerHTML += element;
+        });
+    });
+}
+
 //check btn onclick event
 const sortBtn = document.getElementById('sortBtn');
 sortBtn.addEventListener('click', flipSort);
@@ -95,4 +108,6 @@ function flipSort() {
     let state = sessionStorage.getItem("sort");
     state ^= 1;
     sessionStorage.setItem("sort", state);
+    filesListRevUpdate();
+    }
 }
