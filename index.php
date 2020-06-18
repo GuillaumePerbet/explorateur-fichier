@@ -13,7 +13,7 @@
             <ul id="breadcrumb" class="flex"></ul>
         </nav>
     </header>
-    
+
     <main>
         <section id="createFiles" class="container">
             <form id="createFolder" action="">
@@ -30,6 +30,7 @@
             <button id="sortBtn">Tri par Nom</button>
         </section>
         <section id="listFiles" class="container"></section>
+
     </main>
 
     <?php

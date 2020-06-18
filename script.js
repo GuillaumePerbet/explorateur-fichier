@@ -116,20 +116,38 @@ function pasteFile(){
     }
 }
 
+//Reversed sort
+function filesListRevUpdate(url){
+    const listFilesElt = document.getElementById("listFiles");
+    listFilesElt.innerHTML = "";
+    const formData = new FormData();
+    formData.append("url",url);
+    fetch("php/listFilesRev.php", {method: "POST", body: formData}).then(res=>res.json()).then(data=>{
+        data.forEach(element => {
+            listFilesElt.innerHTML += element;
+        });
+    });
+}
+
 //check btn onclick event
 const sortBtn = document.getElementById('sortBtn');
 sortBtn.addEventListener('click', flipSort);
 
-//create a "sort state"
-//if necessary
 function setSessionSort() {
     if (!sessionStorage.getItem("sort")) {
         sessionStorage.setItem("sort", 0);
     }
 }
 
+//flip state / rev sort if necessary
 function flipSort() {
     let state = sessionStorage.getItem("sort");
     state ^= 1;
     sessionStorage.setItem("sort", state);
+    let url = sessionStorage.getItem("url");
+    if (state === 0) {
+        filesListUpdate(url);
+    } else {
+        filesListRevUpdate(url);
+    }
 }
