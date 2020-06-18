@@ -54,3 +54,17 @@ function deleteFile($url){
         rmdir($url);
     }
 }
+
+//take source url and target url
+//copy file and content recursively
+function copyFile($sourceUrl, $targetUrl){
+    if(is_file($sourceUrl)){
+        copy($sourceUrl, $targetUrl);
+    }else{
+        mkdir($targetUrl);
+        $sourceContent = getDirectoryContent($sourceUrl);
+        foreach($sourceContent as $source){
+            copyFile($sourceUrl.DIRECTORY_SEPARATOR.$source,$targetUrl.DIRECTORY_SEPARATOR.$source);
+        }
+    }
+}
