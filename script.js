@@ -67,3 +67,13 @@ function deleteFile(url,file){
     formData.append('url',url+"\\"+file);
     fetch('php/deleteFile.php',{method: 'POST', body: formData}).then(res=>navigate(url));
 }
+
+//take url : JSON
+//open file at url
+function openFile(url){
+    const formData = new FormData();
+    formData.append('url',url);
+    fetch('php/openFile.php',{method: 'POST', body: formData}).then(res=>res.json()).then(data=>alert(data));
+
+}
+

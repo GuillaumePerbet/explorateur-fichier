@@ -24,7 +24,7 @@ function printDirectoryContent($content){
             $event = "navigate(".json_encode($url . DIRECTORY_SEPARATOR . $file).")";
         }else{
             $type = "file";
-            $event = "";
+            $event = "openFile(".json_encode($url . DIRECTORY_SEPARATOR . $file).")";
         }
     
         // add component to $response
