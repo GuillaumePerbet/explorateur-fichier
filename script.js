@@ -80,11 +80,13 @@ function openFile(url){
 //take url : JSON
 //stock url and copy mode in session storage
 function copyFile(url){
-    sessionStorage.setItem("copy",{"url": url, "cut": false});
+    sessionStorage.setItem("copyUrl", url);
+    sessionStorage.setItem("copyMode", false);
 }
 
 //take url : JSON
 //stock url and copy mode in session storage
 function cutFile(url){
-    sessionStorage.setItem("copy",{"url": url, "cut": true});
+    sessionStorage.setItem("copyUrl", url);
+    sessionStorage.setItem("copyMode", true);
 }
