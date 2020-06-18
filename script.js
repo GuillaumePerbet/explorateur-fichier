@@ -1,19 +1,16 @@
-//take url : JSON
-//update html components
+//update navigator from directory url
 function navigate(url){
     setSessionUrl(url);
     breadcrumbUpdate(url);
     filesListUpdate(url);
 }
 
-// take url : JSON
-// update session storage url
+//stock current url in session storage
 function setSessionUrl(url){
     sessionStorage.setItem("url",url);
 }
 
-// take url : JSON
-// update #breadcrumb element
+//update breadcrumb in navigator from directory url
 function breadcrumbUpdate(url){
     const breadcrumbElt = document.getElementById("breadcrumb");
     breadcrumbElt.innerHTML = "";
@@ -26,8 +23,7 @@ function breadcrumbUpdate(url){
     });
 }
 
-// take url : JSON
-// update #listFiles element
+//update files list in navigator from directory url
 function filesListUpdate(url){
     const listFilesElt = document.getElementById("listFiles");
     listFilesElt.innerHTML = "";
@@ -40,36 +36,34 @@ function filesListUpdate(url){
     });
 }
 
-//create folder event
+//create folder form handler
 const createFolderForm = document.getElementById("createFolder");
 createFolderForm.addEventListener("submit", (e)=>{
     e.preventDefault();
-    //send formData with "url" and "folderName"
+    //send current url and new folder name
     const formData = new FormData(createFolderForm);
     formData.append("url", sessionStorage.getItem("url"));
     fetch("php/createFolder.php", {method : "POST" , body : formData}).then(res=>navigate(sessionStorage.getItem("url")));
 });
 
-//create file event
+//create file form handler
 const createFileForm = document.getElementById("createFile");
 createFileForm.addEventListener("submit", (e)=>{
     e.preventDefault();
-    //send formData with "url" and "fileName"
+    //send current url and new file name
     const formData = new FormData(createFileForm);
     formData.append("url", sessionStorage.getItem("url"));
     fetch("php/createFile.php", {method : "POST" , body : formData}).then(res=>navigate(sessionStorage.getItem("url")));
 });
 
-//take url : JSON, file : string
-//delete file at url
+//delete file at url and update navigator
 function deleteFile(url){
     const formData = new FormData();
     formData.append('url',url);
     fetch('php/deleteFile.php',{method: 'POST', body: formData}).then(res=>navigate(sessionStorage.getItem("url")));
 }
 
-//take url : JSON
-//open file at url
+//show content of file at url
 function openFile(url){
     const formData = new FormData();
     formData.append('url',url);
@@ -77,38 +71,43 @@ function openFile(url){
 
 }
 
-//take url : JSON
-//stock url and copy mode in session storage
+//stock url and name of copied file in session storage
 function copyFile(url,fileName){
     sessionStorage.setItem("copyFileName",fileName);
     sessionStorage.setItem("copySourceUrl", url);
 }
 
-//take url : JSON
-//stock url and copy mode in session storage
+//stock url and name of cutted file in session storage
+//stock cut mode
 function cutFile(url,fileName){
     sessionStorage.setItem("copyFileName",fileName);
     sessionStorage.setItem("copySourceUrl", url);
     sessionStorage.setItem("cutMode", true);
 }
 
-//paste file in current directory
+//paste copied or cuuted file in current directory
 function pasteFile(){
+    //get informations from session storage
     const sourceUrl = sessionStorage.getItem("copySourceUrl");
     const fileName = sessionStorage.getItem("copyFileName");
     const cutMode = sessionStorage.getItem("cutMode");
     const currentUrl = sessionStorage.getItem("url");
+    //if file was previously copied or cut
     if (sourceUrl){
         const formData = new FormData();
         formData.append("sourceUrl", sourceUrl);
         formData.append("currentUrl", currentUrl);
         formData.append("fileName", fileName);
+        //POST informations to copy file handler
         fetch("php/copyFile.php",{method : "POST", body : formData}).then(res=>{
             if(cutMode){
+                //delete source if cut mode
                 deleteFile(sourceUrl);
             }else{
+                //update navigator
                 navigate(currentUrl);
             }
+            //clear copy information storage
             sessionStorage.removeItem("cutMode");
             sessionStorage.removeItem("copySourceUrl");
             sessionStorage.removeItem("copyFileName");
