@@ -59,3 +59,11 @@ createFileForm.addEventListener("submit", (e)=>{
     formData.append("url", sessionStorage.getItem("url"));
     fetch("php/createFile.php", {method : "POST" , body : formData}).then(res=>navigate(sessionStorage.getItem("url")));
 });
+
+//take url : JSON, file : string
+//delete file at url
+function deleteFile(url,file){
+    const formData = new FormData();
+    formData.append('url',url+"\\"+file);
+    fetch('php/deleteFile.php',{method: 'POST', body: formData}).then(res=>navigate(url));
+}

@@ -15,8 +15,8 @@ function getDirectoryContent($url){
 //take array of files name
 //print array of html components in JSON format
 function printDirectoryContent($content){
-    $url = getcwd();
     $response = [];
+    $url = getcwd();
     foreach($content as $file){
         // check if item is a file or a folder
         if (is_dir($file)){
@@ -37,4 +37,18 @@ function printDirectoryContent($content){
         );
     }
     echo json_encode($response);
+}
+
+//take file url
+//remove file and all content recursively
+function deleteFile($url){
+    if (is_file($url)){
+        unlink($url);
+    }else{
+        $content = getDirectoryContent($url);
+        foreach($content as $file){
+            deleteFile($url . DIRECTORY_SEPARATOR . $file);
+        }
+        rmdir($url);
+    }
 }
