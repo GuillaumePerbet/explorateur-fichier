@@ -24,6 +24,7 @@
                 <input type="text" name="fileName" value="Nouveau fichier">
                 <input type="submit" value="Créer un fichier">
             </form>
+            <button onclick="pasteFile()">Coller ici</button>
         </section>
         
         <section id="listFiles" class="container"></section>

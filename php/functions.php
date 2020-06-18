@@ -16,16 +16,15 @@ function getDirectoryContent($url){
 //print array of html components in JSON format
 function printDirectoryContent($content){
     $response = [];
-    $url = getcwd();
     foreach($content as $file){
-        $fileUrl = json_encode($url . DIRECTORY_SEPARATOR . $file);
+        $url = json_encode(getcwd() . DIRECTORY_SEPARATOR . $file);
         // check if item is a file or a folder
         if (is_dir($file)){
             $type = "folder";
-            $event = "navigate($fileUrl)";
+            $event = "navigate($url)";
         }else{
             $type = "file";
-            $event = "openFile($fileUrl)";
+            $event = "openFile($url)";
         }
     
         // add component to $response
@@ -34,9 +33,9 @@ function printDirectoryContent($content){
             <img src='media/$type.png' alt='$type' width='225' height='225'>
             <figcaption>$file</figcaption>
         </figure>
-        <button onclick='deleteFile(".json_encode($url).",".json_encode($file).")'>Supprimer</button>
-        <button onclick='copyFile($fileUrl)'>Copier</button>
-        <button onclick='cutFile($fileUrl)'>Couper</button>"
+        <button onclick='deleteFile($url)'>Supprimer</button>
+        <button onclick='copyFile($url,".json_encode($file).")'>Copier</button>
+        <button onclick='cutFile($url,".json_encode($file).")'>Couper</button>"
         );
     }
     echo json_encode($response);

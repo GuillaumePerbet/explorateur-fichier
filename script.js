@@ -62,10 +62,10 @@ createFileForm.addEventListener("submit", (e)=>{
 
 //take url : JSON, file : string
 //delete file at url
-function deleteFile(url,file){
+function deleteFile(url){
     const formData = new FormData();
-    formData.append('url',url+"\\"+file);
-    fetch('php/deleteFile.php',{method: 'POST', body: formData}).then(res=>navigate(url));
+    formData.append('url',url);
+    fetch('php/deleteFile.php',{method: 'POST', body: formData}).then(res=>navigate(sessionStorage.getItem("url")));
 }
 
 //take url : JSON
@@ -79,14 +79,39 @@ function openFile(url){
 
 //take url : JSON
 //stock url and copy mode in session storage
-function copyFile(url){
-    sessionStorage.setItem("copyUrl", url);
-    sessionStorage.setItem("copyMode", false);
+function copyFile(url,fileName){
+    sessionStorage.setItem("copyFileName",fileName);
+    sessionStorage.setItem("copySourceUrl", url);
 }
 
 //take url : JSON
 //stock url and copy mode in session storage
-function cutFile(url){
-    sessionStorage.setItem("copyUrl", url);
-    sessionStorage.setItem("copyMode", true);
+function cutFile(url,fileName){
+    sessionStorage.setItem("copyFileName",fileName);
+    sessionStorage.setItem("copySourceUrl", url);
+    sessionStorage.setItem("cutMode", true);
+}
+
+//paste file in current directory
+function pasteFile(){
+    const sourceUrl = sessionStorage.getItem("copySourceUrl");
+    const fileName = sessionStorage.getItem("copyFileName");
+    const cutMode = sessionStorage.getItem("cutMode");
+    const currentUrl = sessionStorage.getItem("url");
+    if (sourceUrl){
+        const formData = new FormData();
+        formData.append("sourceUrl", sourceUrl);
+        formData.append("currentUrl", currentUrl);
+        formData.append("fileName", fileName);
+        fetch("php/copyFile.php",{method : "POST", body : formData}).then(res=>{
+            if(cutMode){
+                deleteFile(sourceUrl);
+            }else{
+                navigate(currentUrl);
+            }
+            sessionStorage.removeItem("cutMode");
+            sessionStorage.removeItem("copySourceUrl");
+            sessionStorage.removeItem("copyFileName");
+        });
+    }
 }
