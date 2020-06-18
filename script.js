@@ -78,7 +78,6 @@ function openFile(url){
 
 }
 
-//stf
 function filesListRevUpdate(url){
     const listFilesElt = document.getElementById("listFiles");
     listFilesElt.innerHTML = "";
@@ -96,19 +95,22 @@ const sortBtn = document.getElementById('sortBtn');
 sortBtn.addEventListener('click', flipSort);
 
 
-//create a "sort state"
-//if necessary
+//create "sort state" if necessary
 function setSessionSort() {
     if (!sessionStorage.getItem("sort")) {
         sessionStorage.setItem("sort", 0);
     }
 }
 
+//flip state / rev sort if necessary
 function flipSort() {
     let state = sessionStorage.getItem("sort");
     state ^= 1;
     sessionStorage.setItem("sort", state);
-    filesListRevUpdate();
+    let url = sessionStorage.getItem("url");
+    if (state === 0) {
+        filesListUpdate(url);
+    } else {
+        filesListRevUpdate(url);
     }
 }
-
