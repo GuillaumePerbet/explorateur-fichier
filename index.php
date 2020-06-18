@@ -25,7 +25,9 @@
                 <input type="submit" value="Créer un fichier">
             </form>
         </section>
-        
+        <section id="sortSection"  class="container">
+            <button id="sortBtn">Tri par Nom</button>
+        </section>
         <section id="listFiles" class="container"></section>
     </main>
 
