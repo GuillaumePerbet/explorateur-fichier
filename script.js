@@ -45,6 +45,7 @@ createFolderForm.addEventListener("submit", (e)=>{
     const formData = new FormData(createFolderForm);
     formData.append("url", sessionStorage.getItem("url"));
     fetch("php/createFolder.php", {method : "POST" , body : formData}).then(res=>navigate(sessionStorage.getItem("url")));
+    createFolderForm.reset();
 });
 
 //create file form handler
@@ -55,6 +56,7 @@ createFileForm.addEventListener("submit", (e)=>{
     const formData = new FormData(createFileForm);
     formData.append("url", sessionStorage.getItem("url"));
     fetch("php/createFile.php", {method : "POST" , body : formData}).then(res=>navigate(sessionStorage.getItem("url")));
+    createFileForm.reset();
 });
 
 //delete file at url and update navigator
