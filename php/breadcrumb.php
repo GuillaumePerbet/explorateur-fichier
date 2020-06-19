@@ -6,8 +6,8 @@ $response=[];
 $url = "";
 foreach($path as $item){
     $url = $url . $item;
-    // start printing at "Accueil" directory
-    if($item == "Accueil"){
+    // start printing at "Home" directory
+    if($item == "Home"){
         $print = true;
     }
     if($print){

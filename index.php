@@ -36,8 +36,8 @@
     </main>
 
     <?php
-    // go to "Accueil" directory
-    $url = getcwd() . DIRECTORY_SEPARATOR . "Accueil";
+    // go to "Home" directory
+    $url = getcwd() . DIRECTORY_SEPARATOR . "Home";
     chdir($url);
     $url = json_encode($url);
     ?>
