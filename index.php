@@ -26,16 +26,18 @@
             </form>
             <button class="button" onclick="pasteFile()">Coller ici</button>
         </section>
+
         <section id="sortSection"  class="container">
             <button class="button" id="sortBtn">Tri par Nom</button>
         </section>
-        <section id="listFiles" class="container"></section>
+
+        <section id="listFiles" class="container flex wrap"></section>
 
     </main>
 
     <?php
-    // go to "home" directory
-    $url = getcwd() . DIRECTORY_SEPARATOR . "home";
+    // go to "Accueil" directory
+    $url = getcwd() . DIRECTORY_SEPARATOR . "Accueil";
     chdir($url);
     $url = json_encode($url);
     ?>

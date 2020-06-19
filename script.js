@@ -62,7 +62,9 @@ function deleteFile(event,url){
     const formData = new FormData();
     formData.append('url',url);
     fetch('php/deleteFile.php',{method: 'POST', body: formData}).then(res=>navigate(sessionStorage.getItem("url")));
-    event.stopPropagation();
+    if (event){
+        event.stopPropagation();
+    }
 }
 
 //show content of file at url
@@ -106,7 +108,7 @@ function pasteFile(){
         fetch("php/copyFile.php",{method : "POST", body : formData}).then(res=>{
             if(cutMode){
                 //delete source if cut mode
-                deleteFile(sourceUrl);
+                deleteFile(false,sourceUrl);
             }else{
                 //update navigator
                 navigate(currentUrl);
