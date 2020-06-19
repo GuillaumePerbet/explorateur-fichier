@@ -58,10 +58,11 @@ createFileForm.addEventListener("submit", (e)=>{
 });
 
 //delete file at url and update navigator
-function deleteFile(url){
+function deleteFile(event,url){
     const formData = new FormData();
     formData.append('url',url);
     fetch('php/deleteFile.php',{method: 'POST', body: formData}).then(res=>navigate(sessionStorage.getItem("url")));
+    event.stopPropagation();
 }
 
 //show content of file at url
@@ -73,17 +74,19 @@ function openFile(url){
 }
 
 //stock url and name of copied file in session storage
-function copyFile(url,fileName){
+function copyFile(event,url,fileName){
     sessionStorage.setItem("copyFileName",fileName);
     sessionStorage.setItem("copySourceUrl", url);
+    event.stopPropagation();
 }
 
 //stock url and name of cutted file in session storage
 //stock cut mode
-function cutFile(url,fileName){
+function cutFile(event,url,fileName){
     sessionStorage.setItem("copyFileName",fileName);
     sessionStorage.setItem("copySourceUrl", url);
     sessionStorage.setItem("cutMode", true);
+    event.stopPropagation();
 }
 
 //paste copied or cuuted file in current directory
