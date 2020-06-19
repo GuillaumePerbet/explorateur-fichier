@@ -17,11 +17,11 @@
     <main>
         <section id="createFiles" class="container">
             <form id="createFolder" action="">
-                <input type="text" name="folderName" value="Nouveau dossier">
+                <input type="text" name="folderName" value="" placeholder="Nouveau dossier">
                 <input type="submit" value="Créer un dossier">
             </form>
             <form id="createFile" action="">
-                <input type="text" name="fileName" value="Nouveau fichier">
+                <input type="text" name="fileName" value="" placeholder="Nouveau fichier">
                 <input type="submit" value="Créer un fichier">
             </form>
             <button onclick="pasteFile()">Coller ici</button>
