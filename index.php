@@ -15,23 +15,25 @@
     </header>
 
     <main>
-        <section id="createFiles" class="container">
-            <form id="createFolder" action="">
-                <input type="text" name="folderName" value="Nouveau dossier">
-                <input class="button" type="submit" value="Créer un dossier">
-            </form>
-            <form id="createFile" action="">
-                <input type="text" name="fileName" value="Nouveau fichier">
-                <input class="button" type="submit" value="Créer un fichier">
-            </form>
-            <button class="button" onclick="pasteFile()">Coller ici</button>
-        </section>
-
         <section id="sortSection"  class="container">
             <button class="button" id="sortBtn">Tri par Nom</button>
         </section>
 
         <section id="listFiles" class="container flex wrap"></section>
+
+        <section id="createFiles" class="container flex flexend">
+            <form id="createFolder" action="" class="flex column">
+                <input type="text" name="folderName" placeholder="nom du dossier">
+                <input class="button" type="submit" value="Créer un dossier">
+            </form>
+
+            <form id="createFile" action="" class="flex column">
+                <input type="text" name="fileName" placeholder="nom du fichier">
+                <input class="button" type="submit" value="Créer un fichier">
+            </form>
+
+            <button class="button" onclick="pasteFile()">Coller ici</button>
+        </section>
 
     </main>
 

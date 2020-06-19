@@ -78,6 +78,10 @@ ul, ol {
   align-items: center;
 }
 
+.flexend {
+  align-items: flex-end;
+}
+
 h1 {
   font-family: "Roboto-Regular", sans-serif;
   font-size: 3rem;
@@ -100,6 +104,7 @@ h2 {
   letter-spacing: 0.078125rem;
   text-transform: uppercase;
   padding: 0.5rem 1rem;
+  margin: 0 1rem;
   border: none;
   background-color: #03DAC6;
   color: #000000;
@@ -111,6 +116,11 @@ h2 {
   cursor: pointer;
   opacity: 0.92;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+#createFolder .button, #createFile .button {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
 }
 
 .iconBtn {
@@ -171,6 +181,26 @@ nav li a {
   z-index: 1;
   top: 62%;
   left: 17%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=text] {
+  -moz-appearance: textfield;
+  background-color: #D1C4E9;
+  border: none;
+  border-bottom: 1px solid #D1C4E9;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  font-family: "Roboto-Medium", sans-serif;
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 0.25rem 0;
+  margin: 0 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */
