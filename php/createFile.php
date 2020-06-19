@@ -1,7 +1,10 @@
 <?php
+require_once("functions.php");
 
-$url = $_POST["url"].DIRECTORY_SEPARATOR.$_POST["fileName"];
-if(!is_file($url)){
-    $file = fopen($url,'w');
-    fclose($file);
+$newFileUrl = $_POST["url"].DIRECTORY_SEPARATOR.$_POST["fileName"];
+
+if(file_exists($newFileUrl)){
+    //error message
+}else{
+    createFile($newFileUrl);
 }

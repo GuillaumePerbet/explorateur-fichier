@@ -1,6 +1,10 @@
 <?php
+require_once("functions.php");
 
-$url = $_POST["url"].DIRECTORY_SEPARATOR.$_POST["folderName"];
-if(!is_dir($url)){
-    mkdir($url);
+$newFolderUrl = $_POST["url"].DIRECTORY_SEPARATOR.$_POST["folderName"];
+
+if(file_exists($newFolderUrl)){
+    //error Message
+}else{
+    createFolder($newFolderUrl);
 }

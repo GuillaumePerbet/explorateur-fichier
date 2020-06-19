@@ -1,6 +1,5 @@
 <?php
 require_once("functions.php");
 
-$url = $_POST["url"];
-$content = getDirectoryContent($url);
+$content = getDirectoryContent($_POST["url"]);
 printDirectoryContent($content);
