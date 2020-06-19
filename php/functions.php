@@ -32,10 +32,10 @@ function printDirectoryContent($content){
         "<figure class='item' onclick='$event'>
             <img src='media/$type.png' alt='$type' width='225' height='225'>
             <figcaption>$file</figcaption>
-            <div class='fileControls flex justify-center'>
-                <button class='deleteBtn' onclick='deleteFile(event,$url)'></button>
-                <button class='copyBtn' onclick='copyFile(event,$url,".json_encode($file).")'>Copier</button>
-                <button class='cutBtn' onclick='cutFile(event,$url,".json_encode($file).")'>Couper</button>
+            <div class='fileControls flex between'>
+                <button class='iconBtn bin' onclick='deleteFile(event,$url)'></button>
+                <button class='iconBtn copy' onclick='copyFile(event,$url,".json_encode($file).")'></button>
+                <button class='iconBtn cut' onclick='cutFile(event,$url,".json_encode($file).")'></button>
             </div>
         </figure>"
         );
