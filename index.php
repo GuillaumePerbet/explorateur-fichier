@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explorateur de fichiers</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="media/favicon.ico">
 </head>
 <body>
     <header class="container margin">
