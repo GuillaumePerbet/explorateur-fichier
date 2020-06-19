@@ -141,9 +141,7 @@ const sortBtn = document.getElementById('sortBtn');
 sortBtn.addEventListener('click', flipSort);
 
 function setSessionSort() {
-    if (!sessionStorage.getItem("sort")) {
-        sessionStorage.setItem("sort", 0);
-    }
+    sessionStorage.setItem("sort", 0);
 }
 
 //flip state / rev sort if necessary
