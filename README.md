@@ -1,22 +1,15 @@
-# explorateur-fichier
+# Explorateur de fichier
+Ce projet a été réalisé dans le cadre de la formation Access Code School en 2020 par Guillaume Perbet et Stéphane Pluchard
 
-Exercice de création d'un explorateur de fichier
+## Application
+L'application consiste à créer un explorateur de fichiers en php. Les fonctionnalités mises en place sont:
+- la navigation dans les dossiers enfants et parents avec un fil d'Arianne
+- la création et suppression de dossiers et de fichiers
+- les fonctionnalités copier/couper/coller
+- l'ouverture des fichiers
+- le tri par nom
 
-1.  Afficher le contenu du répertoire 
-2.  Le script ouvre un "enfant" du répertoire dans lequel il se trouve
-3.  Faire en sorte que .. et . n’apparaissent pas
-4.  Afficher un fil d'ariane (breadcrumb) pour se repérer dans l'arborescence 
-5.  Pouvoir se promener dans l'arborescence : ouvrir des dossiers enfants, remonter au parent, etc.
-6.  Trier les fichiers par nom / taille / type / date de création
-7.  Bouton pour classer les fichiers par nom / taille / type / date de création
-8.  Option afficher/masquer les fichiers cachés
-9.  Ouvrir des fichiers
-10.  Modifier des fichiers
-11.  Couper/copier/collera les fichiers
-12.  Supprimer des fichiers
-13.  Créer un nouveau dossier dans le répertoire où l'on est positionné
-14.  Créer un nouveau fichier dans le répertoire où l'on est positionné
-15.  Les fichiers supprimés vont dans une corbeille
-16.  Restaurer les fichiers depuis la corbeille
-17.  Styliser l'explorateur de fichier
-18.  Upload de fichier + un système de drag n’drop
+## Pour continuer...
+On pourrait par la suite:
+- ajouter une corbeille avec un système de drag and drop
+- améliorer le style de l'interface
